@@ -2,21 +2,37 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="lstyles.css">
+        <title>Ecommerce Website</title>
+        <style>
+            .a{
+                margin-top:5%;
+
+            }
+            .b{
+                text-align:center;
+                width:20%;
+                margin:.375% 0;
+                height:30%;
+                padding:.75% 0;
+            }
+            body{
+                background-color:rgb(231, 133, 21);
+            }
+        </style>
     </head>
     <body style="text-align:center;">
-        <h1>abc</h1>
-        <form class="a">
+        <h1>Login</h1>
+        <form class="a" action="">
             <div border="1">
-            <input type="text" placeholder="email ID or phone No" class="b">
+            <input type="email" placeholder="Email ID" name="email" class="b">
             <br>
-            <input type="password" placeholder="password" class="b">
+            <input type="password" placeholder="Password" name="password" class="b">
             <br>
-            <button class="b">Sign in</button>
+            <input type="submit" value="Sign in" class="b"/>
         </div>
         </form>
-        <p>Don't have an account</p>
-        <button class="b">Create New Account</button>
+        <p>Don't have an account
+        <a href="/register">Create New Account</a>
+        </p>
     </body>
 </html>

@@ -2,21 +2,49 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="lstyles.css">
+        <title>Ecommerce Website</title>
+        <style>
+            .a{
+                margin-top:5%;
+
+            }
+            .b{
+                text-align:center;
+                width:20%;
+                margin:.375% 0;
+                height:30%;
+                padding:.75% 0;
+            }
+            body{
+                background-color:rgb(231, 133, 21);
+            }
+        </style>
     </head>
     <body style="text-align:center;">
-        <h1>abc</h1>
-        <form class="a">
+        <h1>Register</h1>
+        <form class="a" action="/register" method="post">
             <div border="1">
-            <input type="text" placeholder="email ID or phone No" class="b">
+            <input type="email" placeholder="Email ID" name="email" class="b">
             <br>
-            <input type="password" placeholder="password" class="b">
+            <input type="password" placeholder="Password" name="password" class="b">
             <br>
-            <input type="password" placeholder="confirm password" class="b">
+            <input type="password" placeholder="Confirm password" name="confirmpassword" class="b">
             <br>
-            <button class="b">Sign up</button>
+            <input type="text" placeholder="Phone number" name="phone" class="b">
+            <br>
+            <input type="text" placeholder="House Number" name="hno" class="b">
+            <br>
+            <input type="text" placeholder="Street" name="street" class="b">
+            <br>
+            <input type="text" placeholder="City" name="city" class="b">
+            <br>
+            <input type="text" placeholder="District" name="district" class="b">
+            <br>
+            <input type="submit" value="Sign up" class="b"/>
         </div>
         </form>
+        <p> Have an account
+        <a href="/">LogIn</a>
+        </p>
     </body>
 </html>
