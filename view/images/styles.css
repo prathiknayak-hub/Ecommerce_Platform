@@ -1,0 +1,105 @@
+/* header part */
+.a{
+    display:inline-block;
+    margin-left:5%;
+    color:white;
+}
+.a1{
+    display:inline-block;
+    margin-left:25%;
+}
+.a12{
+    padding:2% 0;
+    width:30vw;
+    height:vh;
+    border-radius: .5rem;
+    padding-left:.5rem;
+}
+.a2{
+    margin-left:20%;
+    padding:auto;
+    height:2rem
+}
+.anchead{
+    color:white;
+    margin-right:.5rem;
+}
+.hsig{
+    height:2.5rem;
+    border-radius:.5rem;
+    margin-left:20%;
+    padding:auto .5rem;
+}
+.carousel-image{
+    height:40vh;
+    width:80%;
+}
+.carousel-item{
+    text-align: center;
+    background-color: black;
+}
+.heading{
+    background:linear-gradient( to right,#f510c8,#532566);
+    padding:1.25rem;
+    height:15vh;
+}
+body{
+    margin:0;
+}
+
+
+/* cards part */
+.card-div{
+    text-align: center;
+    height:40vh;
+    width:15vw;
+    margin-left:.85rem;
+    margin-top:.5rem;
+    margin-bottom:.5rem;
+    display:inline-block;
+    background-color:white;
+}
+.card-image{
+    width:10rem;
+    height:10rem;
+}
+
+/* full cards part */
+.full-div{
+    background:linear-gradient( to right,rgba(255, 255, 255, 0.788),grey);
+    padding-left:2rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+}
+.lapimg{
+    display:inline-block;
+    padding-left:2rem;
+}
+
+/* footer */
+.footer{
+    width:100%;
+    height:10rem;
+    background:linear-gradient( to right,#f510c8,#532566);
+    color:white;
+}
+
+/* mobiles.html  */
+.c1{
+    text-align:center;
+    display:inline-block;
+    height:25rem;
+    width:20rem;
+    margin-bottom:2rem;
+}
+.c2{
+    
+    height:15rem;
+    width:18rem;
+}
+.c3{
+    margin-left:10rem;
+}
+.c4{
+    background-color: orange;
+} 
