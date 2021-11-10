@@ -16,6 +16,7 @@ app.use(express.urlencoded({extended:false}));
 // Routes
 app.use('/',require('./router/user_login'));
 app.use('/register',require('./router/user_register'));
+app.use('/dashboard',require('./router/dashboard'));
 
 const PORT = process.env.PORT || 5000;
 
