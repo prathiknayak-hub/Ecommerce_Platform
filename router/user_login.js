@@ -19,6 +19,7 @@ const registervalidator=[
 ]
 router.get('/',(req,res) => res.render('user_login', { layout: false }));
 //router.get('/register',(req,res) => res.render('user_register', { layout: false }));
+router.get('/mobile',(req,res) => res.render('mobile', { layout: false }));
 
 router.post('/',registervalidator,(req,res) => {
     auth.login(req,res);
