@@ -149,13 +149,15 @@ body{
     <section class="c3">
         <h3>Mobiles</h3>
         <% for(var i=0;i<mobiles.length;i++){ %>
-            <div class="c1">
-                <img src="images/item<%=mobiles[i].itemid%>.jpg" alt="" class="c2">
-                <pre><%=mobiles[i].description%></pre>
-                <p><strong>Rs.<%=mobiles[i].itemprice%></strong></p>
-                <button type="button" class="btn btn-light c4">Buy Now</button>  
-                <button type="button" class="btn btn-light c4">Cart</button>  
-            </div>
+            <% if(mobiles[i].type=='m'){%>
+                <div class="c1">
+                    <img src="images/item<%=mobiles[i].itemid%>.jpg" alt="" class="c2">
+                    <pre><%=mobiles[i].description%></pre>
+                    <p><strong>Rs.<%=mobiles[i].itemprice%></strong></p>
+                    <button type="button" class="btn btn-light c4">Buy Now</button>  
+                    <button type="button" class="btn btn-light c4">Cart</button>  
+                </div>
+            <%}%>
         <%}%>
     </section>
 
