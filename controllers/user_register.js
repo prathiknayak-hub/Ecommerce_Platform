@@ -23,7 +23,9 @@ async function register (req,res) {
         // console.log(hash)
         const user_signup = await pool.query("insert into customer (email,password,name) values ($1,$2, $3)", [email,hash,name])
         // console.log(user_signup);
-        res.json(201);
+        res.status(201).json({
+            user: '1'
+        });
     }
     catch(e){
         res.status(500).json({

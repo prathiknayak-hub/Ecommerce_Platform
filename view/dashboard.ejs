@@ -42,6 +42,10 @@
 .anchead{
     color:white;
     margin-right:.5rem;
+    text-decoration: none;
+}
+.anchead:hover{
+  text-decoration: none;
 }
 .hsig{
     height:2.5rem;
@@ -97,10 +101,12 @@ body{
 
 /* footer */
 .footer{
+  text-align: center;
     width:100%;
     height:10rem;
     background:linear-gradient( to right,#f510c8,#532566);
     color:white;
+    padding-top: 2rem;
 }
 
 /* mobiles.html  */
@@ -127,12 +133,12 @@ body{
     <body>
         <section class="heading">
         <div>
-       <h3 class="a">abc</h3>
+       <h3 class="a">Hyperlocal</h3>
        <form class="a1">
            <input type="text" class="a12" placeholder="Search">
            <button type="button" class="btn btn-warning">Search</button>
        </form>
-       <button class="hsig" style="cursor: pointer;">LogOut</button>
+       <a href="/logout" class="hsig">LogOut</a>
     </div>
     <a href="/dashboard" class="anchead">Home</a>
     <a href="" class="anchead">Orders</a>
@@ -214,7 +220,8 @@ body{
       </div>
 </section>
     <section class="footer">
-        <p>Copyright</p>
+        <p>@Copyright</p>
+        <p>Creators : Nagaraj M and Prathik Nayak</p>
     </section>
     </body>
 </html>

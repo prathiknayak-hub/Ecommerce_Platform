@@ -1,6 +1,7 @@
 const express = require('express');
 const {body} = require('express-validator');
 const auth = require('../controllers/user_register');
+const mobilelist = require('../controllers/mobiles_list')
 const router = express.Router();
 
 const registervalidator=[
@@ -17,11 +18,23 @@ const registervalidator=[
     .isLength({min:6,max:20})
     .withMessage("Please enter a valid password")
 ]
+
 router.get('/',(req,res) => res.render('user_login', { layout: false }));
 //router.get('/register',(req,res) => res.render('user_register', { layout: false }));
-router.get('/mobile',(req,res) => res.render('mobile', { layout: false }));
+router.get('/mobile',async(req,res) => {
+   let mobiles =await mobilelist.fetch_mobiles(req,res);
+   console.log(1234,mobiles);
+    res.render('mobile', { layout: false, mobiles: mobiles })
+});
 
 router.post('/',registervalidator,(req,res) => {
     auth.login(req,res);
 });
+
+router.get("/logout", async (req, res) => {
+    console.log("hi")
+    res.clearCookie('token')
+    console.log("Successfully logged out ")
+    res.render('user_login', { layout: false })
+  })
 module.exports = router;
