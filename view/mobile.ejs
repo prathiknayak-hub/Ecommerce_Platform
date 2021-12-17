@@ -110,7 +110,7 @@ body{
 .c1{
     text-align:center;
     display:inline-block;
-    height:25rem;
+    height:35rem;            /*edited from 25 */
     width:20rem;
     margin:0.5rem;
     /* border:solid 2px; */
@@ -153,13 +153,18 @@ body{
                     <img src="images/item<%=mobiles[i].itemid%>.jpg" alt="" class="c2">
                     <pre><%=mobiles[i].description%></pre>
                     <p><strong>Rs.<%=mobiles[i].itemprice%></strong></p>
+                    <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
                     <form action="/orders" method="POST">
-
+                        <button type="button" onclick="inc()">+</button>
+                        <p id="qty">0</p>
+                        <button type="button" onclick="dec()">-</button>
                         <button type="submit"  class="btn btn-light c4">Buy Now</button> 
                     </form> 
+             
                     <form action="/cart" method="POST">
                         <button type="submit" class="btn btn-light c4">Cart</button> 
                     </form> 
+                </div>
                     
                 </div>
         <%}%>
@@ -168,5 +173,20 @@ body{
     <section class="footer">
         <p>Copyright</p>
     </section>
+    <button type="button" onclick="inc()">+</button>
+    <p id="qty">0</p>
+    <button type="button" onclick="dec()">-</button>
+<script>
+    function inc(){
+        var a=document.getElementById('qty').innerHTML;
+        document.getElementById('qty').innerHTML=parseInt(a)+1;            
+    }
+    function dec(){
+        var a=document.getElementById('qty').innerHTML;
+        if(a!=0){
+        document.getElementById('qty').innerHTML=parseInt(a)-1;
+        }
+    }
+</script>
     </body>
 </html>
