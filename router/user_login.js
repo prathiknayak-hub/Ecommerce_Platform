@@ -1,7 +1,8 @@
 const express = require('express');
 const {body} = require('express-validator');
 const auth = require('../controllers/user_register');
-const mobilelist = require('../controllers/mobiles_list')
+const mobilelist = require('../controllers/mobiles_list');
+const laptoplist = require('../controllers/laptops_list');
 const router = express.Router();
 
 const registervalidator=[
@@ -26,6 +27,19 @@ router.get('/mobile',async(req,res) => {
    console.log(1234,mobiles);
     res.render('mobile', { layout: false, mobiles: mobiles })
 });
+
+router.get('/laptop',async(req,res) => {
+    let laptops =await laptoplist.fetch_laptops(req,res);
+     res.render('laptop', { layout: false,laptops:laptops })
+ });
+
+ router.get('/orders',async(req,res) => {
+     res.render('orders', { layout: false })
+ });
+
+ router.get('/cart',async(req,res) => {
+     res.render('cart', { layout: false })
+ });
 
 router.post('/',registervalidator,(req,res) => {
     auth.login(req,res);
