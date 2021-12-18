@@ -48,19 +48,22 @@ async function login (req,res) {
             const hash_password_string = hash_password.rows[0].password
             const validPassword = await bcrypt.compare(password, hash_password_string);
             const token = await JWT.sign({
-                email
+                email:email
             }, 'somesecret')
+
+            console.log(token);
             if(!validPassword){
                 return res.status(400).json({errors:'Invalid Password'})
             }
             else{
-                res.cookie('access_token', token, {
+                res.cookie('token', token, {
                     maxAge: 3600000,
-                    httpOnly: true
+                    httpOnly: true,
+                    path:"/"
                 })
-            res.status(201).json({
-                user: '1'
-            });
+                res.status(201).json({
+                    user: '1'
+                });
             }
         }
         else{

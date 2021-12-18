@@ -152,20 +152,22 @@ body{
                 <p><strong>Rs.<%=laptops[i].itemprice%></strong></p>
                
                 <form action="/orders" method="POST">
+                    <input type="hidden" name="itemid" value="<%=laptops[i].itemid%>"/>
+                    <input type="hidden" name="type" value="<%=laptops[i].type%>"/>
                     <div style="display:flex;flex-direction: column;align-items: center;justify-content: center;">
                     <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
                         <button type="button" onclick="inc('qty<%=laptops[i].itemid%>')" style="margin-right:3%;">+</button>
-                        <p id="qty<%=laptops[i].itemid%>">0</p>
+                        <input id="qty<%=laptops[i].itemid%>" name="qty" value="0"/>
                         <button type="button" onclick="dec('qty<%=laptops[i].itemid%>')" style="margin-right:3%; margin-left:3%;">-</button>
                     <button type="submit"  class="btn btn-light c4">Buy Now</button> 
                 </div>
                 </form> 
             </div>
                 <form action="/cart" method="POST">
+                    <input type="hidden" name="itemid" value="<%=laptops[i].itemid%>"/>
+                    <input type="hidden" name="type" value="<%=laptops[i].type%>"/>
                     <button type="submit" class="btn btn-light c4" style="margin-top: 3%;">Add to Cart</button> 
                 </form> 
-              
-
             </div>
     <%}%>
 </section>
@@ -174,5 +176,18 @@ body{
     <section class="footer">
         <p>Copyright</p>
     </section>
+
+    <script>
+        function inc(itemqty){
+            var a=document.getElementById(itemqty).value;
+            document.getElementById(itemqty).value=parseInt(a)+1;            
+        }
+        function dec(itemqty){
+            var a=document.getElementById(itemqty).value;
+            if(a!=0){
+            document.getElementById(itemqty).value=parseInt(a)-1;
+            }
+        }
+    </script>
     </body>
 </html>

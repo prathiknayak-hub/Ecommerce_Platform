@@ -3,6 +3,8 @@ const {body} = require('express-validator');
 const auth = require('../controllers/user_register');
 const mobilelist = require('../controllers/mobiles_list');
 const laptoplist = require('../controllers/laptops_list');
+const Cart = require('../controllers/cart');
+const Order = require('../controllers/order');
 const router = express.Router();
 
 const registervalidator=[
@@ -30,7 +32,7 @@ router.get('/mobile',async(req,res) => {
 
 router.get('/laptop',async(req,res) => {
     let laptops =await laptoplist.fetch_laptops(req,res);
-     res.render('laptop', { layout: false,laptops:laptops })
+    res.render('laptop', { layout: false,laptops:laptops })
  });
 
  router.get('/orders',async(req,res) => {
@@ -43,6 +45,36 @@ router.get('/laptop',async(req,res) => {
 
 router.post('/',registervalidator,(req,res) => {
     auth.login(req,res);
+});
+
+router.post('/cart',async(req,res)=>{
+    console.log(req.body.itemid);
+    await Cart.insert_into_cart(req,res);
+    console.log(req.body.type);
+    if(req.body.type=='m'){
+        let mobiles =await mobilelist.fetch_mobiles(req,res);
+        console.log(1234,mobiles);
+        res.render('mobile', { layout: false, mobiles: mobiles });
+    }
+    else{
+        let laptops =await laptoplist.fetch_laptops(req,res);
+        res.render('laptop', { layout: false,laptops:laptops });
+    }
+})
+
+router.post('/orders',async(req,res) => {
+    console.log(req.body.itemid);
+    await Order.insert_into_order(req,res);
+    console.log(req.body.type);
+    if(req.body.type=='m'){
+        let mobiles =await mobilelist.fetch_mobiles(req,res);
+        console.log(1234,mobiles);
+        res.render('mobile', { layout: false, mobiles: mobiles });
+    }
+    else{
+        let laptops =await laptoplist.fetch_laptops(req,res);
+        res.render('laptop', { layout: false,laptops:laptops });
+    }
 });
 
 router.get("/logout", async (req, res) => {

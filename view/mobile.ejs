@@ -155,17 +155,21 @@ body{
                     <p><strong>Rs.<%=mobiles[i].itemprice%></strong></p>
                     
                     <form action="/orders" method="POST">
+                        <input type="hidden" name="itemid" value="<%=mobiles[i].itemid%>"/>
+                        <input type="hidden" name="type" value="<%=mobiles[i].type%>"/>
                         <div style="display:flex;flex-direction: column;align-items: center;justify-content: center;">
                         <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
                             <button type="button" onclick="inc('qty<%=mobiles[i].itemid%>')" style="margin-right:3%;">+</button>
-                            <p id="qty<%=mobiles[i].itemid%>">0</p>
+                            <input id="qty<%=mobiles[i].itemid%>" name="qty" value="0"/>
                             <button type="button" onclick="dec('qty<%=mobiles[i].itemid%>')" style="margin-right:3%; margin-left:3%;">-</button>
                         <button type="submit"  class="btn btn-light c4">Buy Now</button> 
                     </div>
                     </form> 
                 </div>
                     <form action="/cart" method="POST">
-                        <button type="submit" class="btn btn-light c4" style="margin-top: 3%;">Add to Cart</button> 
+                        <input type="hidden" name="itemid" value="<%=mobiles[i].itemid%>"/>
+                        <input type="hidden" name="type" value="<%=mobiles[i].type%>"/>
+                        <button type="submit" class="btn btn-light c4">Add to Cart</button> 
                     </form> 
                   
                 </div>
@@ -177,13 +181,13 @@ body{
     </section>
 <script>
     function inc(itemqty){
-        var a=document.getElementById(itemqty).innerHTML;
-        document.getElementById(itemqty).innerHTML=parseInt(a)+1;            
+        var a=document.getElementById(itemqty).value;
+        document.getElementById(itemqty).value=parseInt(a)+1;            
     }
     function dec(itemqty){
-        var a=document.getElementById(itemqty).innerHTML;
+        var a=document.getElementById(itemqty).value;
         if(a!=0){
-        document.getElementById(itemqty).innerHTML=parseInt(a)-1;
+        document.getElementById(itemqty).value=parseInt(a)-1;
         }
     }
 </script>
