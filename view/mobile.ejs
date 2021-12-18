@@ -110,7 +110,7 @@ body{
 .c1{
     text-align:center;
     display:inline-block;
-    height:35rem;            /*edited from 25 */
+    height:28rem;            /*edited from 25 */
     width:20rem;
     margin:0.5rem;
     /* border:solid 2px; */
@@ -153,19 +153,21 @@ body{
                     <img src="images/item<%=mobiles[i].itemid%>.jpg" alt="" class="c2">
                     <pre><%=mobiles[i].description%></pre>
                     <p><strong>Rs.<%=mobiles[i].itemprice%></strong></p>
-                    <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
+                    
                     <form action="/orders" method="POST">
-                        <button type="button" onclick="inc()">+</button>
-                        <p id="qty">0</p>
-                        <button type="button" onclick="dec()">-</button>
+                        <div style="display:flex;flex-direction: column;align-items: center;justify-content: center;">
+                        <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
+                            <button type="button" onclick="inc('qty<%=mobiles[i].itemid%>')" style="margin-right:3%;">+</button>
+                            <p id="qty<%=mobiles[i].itemid%>">0</p>
+                            <button type="button" onclick="dec('qty<%=mobiles[i].itemid%>')" style="margin-right:3%; margin-left:3%;">-</button>
                         <button type="submit"  class="btn btn-light c4">Buy Now</button> 
-                    </form> 
-             
-                    <form action="/cart" method="POST">
-                        <button type="submit" class="btn btn-light c4">Cart</button> 
+                    </div>
                     </form> 
                 </div>
-                    
+                    <form action="/cart" method="POST">
+                        <button type="submit" class="btn btn-light c4" style="margin-top: 3%;">Add to Cart</button> 
+                    </form> 
+                  
                 </div>
         <%}%>
     </section>
@@ -173,18 +175,15 @@ body{
     <section class="footer">
         <p>Copyright</p>
     </section>
-    <button type="button" onclick="inc()">+</button>
-    <p id="qty">0</p>
-    <button type="button" onclick="dec()">-</button>
 <script>
-    function inc(){
-        var a=document.getElementById('qty').innerHTML;
-        document.getElementById('qty').innerHTML=parseInt(a)+1;            
+    function inc(itemqty){
+        var a=document.getElementById(itemqty).innerHTML;
+        document.getElementById(itemqty).innerHTML=parseInt(a)+1;            
     }
-    function dec(){
-        var a=document.getElementById('qty').innerHTML;
+    function dec(itemqty){
+        var a=document.getElementById(itemqty).innerHTML;
         if(a!=0){
-        document.getElementById('qty').innerHTML=parseInt(a)-1;
+        document.getElementById(itemqty).innerHTML=parseInt(a)-1;
         }
     }
 </script>

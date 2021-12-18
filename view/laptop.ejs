@@ -106,7 +106,7 @@ body{
 .c1{
     text-align:center;
     display:inline-block;
-    height:25rem;
+    height:28rem;
     width:20rem;
     margin:0.5rem;
     /* border:solid 2px; */
@@ -150,8 +150,22 @@ body{
                 <img src="images/itemlaptop<%=laptops[i].itemid%>.jpg" alt="" class="c2">
                 <pre><%=laptops[i].description%></pre>
                 <p><strong>Rs.<%=laptops[i].itemprice%></strong></p>
-                <button type="button" class="btn btn-light c4">Buy Now</button>  
-                <button type="button" class="btn btn-light c4">Cart</button>  
+               
+                <form action="/orders" method="POST">
+                    <div style="display:flex;flex-direction: column;align-items: center;justify-content: center;">
+                    <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
+                        <button type="button" onclick="inc('qty<%=laptops[i].itemid%>')" style="margin-right:3%;">+</button>
+                        <p id="qty<%=laptops[i].itemid%>">0</p>
+                        <button type="button" onclick="dec('qty<%=laptops[i].itemid%>')" style="margin-right:3%; margin-left:3%;">-</button>
+                    <button type="submit"  class="btn btn-light c4">Buy Now</button> 
+                </div>
+                </form> 
+            </div>
+                <form action="/cart" method="POST">
+                    <button type="submit" class="btn btn-light c4" style="margin-top: 3%;">Add to Cart</button> 
+                </form> 
+              
+
             </div>
     <%}%>
 </section>
