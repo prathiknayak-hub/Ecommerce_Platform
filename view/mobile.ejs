@@ -124,11 +124,41 @@ body{
     width:15rem;
 }
 .c3{
-    margin-left:10rem;
+    margin-left:2rem;  
 }
 .c4{
     background-color: orange;
 } 
+
+
+.img-zoom-container {
+    position: relative;
+  }
+  
+  .img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /*set the size of the lens:*/
+    width: 30px;
+    height: 30px;
+  }
+  
+  .img-zoom-result {
+    border: 1px solid #d4d4d4;
+    /*set the size of the result div:*/
+    display:inline-block;
+    width: 150px;
+    height: 300px;
+  }
+  .zoom{
+      width:0px;
+      position:absolute;
+  }
+  .c2:hover + .zoom{
+      width:20rem;
+      height:30rem;
+  }
+
 </style>
     </head>
     <body>
@@ -150,7 +180,8 @@ body{
         <h3>Mobiles</h3>
         <% for(var i=0;i<mobiles.length;i++){ %>
                 <div class="c1">
-                    <img src="images/item<%=mobiles[i].itemid%>.jpg" alt="" class="c2">
+                    <img src="images/item<%=mobiles[i].itemid%>.jpg" id="myimage" alt="" class="c2">
+                    <img src="images/item<%=mobiles[i].itemid%>.jpg" id="" alt="" class="zoom">                    
                     <pre><%=mobiles[i].description%></pre>
                     <p><strong>Rs.<%=mobiles[i].itemprice%></strong></p>
                     
@@ -160,7 +191,7 @@ body{
                         <div style="display:flex;flex-direction: column;align-items: center;justify-content: center;">
                         <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
                             <button type="button" onclick="inc('qty<%=mobiles[i].itemid%>')" style="margin-right:3%;">+</button>
-                            <input id="qty<%=mobiles[i].itemid%>" name="qty" value="0"/>
+                            <input id="qty<%=mobiles[i].itemid%>" name="qty" value="0" size="4" maxlength="4"/>
                             <button type="button" onclick="dec('qty<%=mobiles[i].itemid%>')" style="margin-right:3%; margin-left:3%;">-</button>
                         <button type="submit"  class="btn btn-light c4">Buy Now</button> 
                     </div>
@@ -173,7 +204,7 @@ body{
                     </form> 
                   
                 </div>
-        <%}%>
+            <%}%>
     </section>
 
     <section class="footer">
@@ -190,6 +221,7 @@ body{
         document.getElementById(itemqty).value=parseInt(a)-1;
         }
     }
+    imageZoom("myimage","myresult");
 </script>
     </body>
 </html>

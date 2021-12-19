@@ -5,15 +5,17 @@ const bodyParser=require("body-parser");
 
 router.get('/',(req,res) => res.render('dashboard', { layout: false }));
 
-router.post("/search",(req,res)=>{
-    const b=req.body.search;
-    if(b=="mobile"){
-        res.render("mobile");
-    }else if(b=="laptop"){
-        res.render("laptop");
-    }else{
-        res.render("dashboard");
-    }
-});
+// router.get("/dashboard",(req,res)=>{
+//     var b=req.body.search;
+//     console.log(b);
+    
+//  if(b=="mobile"){
+//     res.render("mobile",{layout:false});
+// }else if(b=="laptop"){
+//     res.render("laptop",{layout:false});
+// }else{
+//     res.render("dashboard",{layout:false});
+// }
+// });
 
 module.exports = router;
