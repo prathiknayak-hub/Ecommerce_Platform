@@ -147,8 +147,18 @@ body{
     </section>
 
     <section class="c3">
-        <h3>Mobiles</h3>
-        
+        <% for(var i=0;i<items.length;i++){ %>
+            <div class="c1">
+                <% if(items[i].type=='m'){%>
+                <img src="images/item<%=items[i].itemid%>.jpg" alt="" class="c2">
+                <%}else{%>
+                    <img src="images/itemlaptop<%=items[i].itemid%>.jpg" alt="" class="c2">
+                <%}%>
+                <pre><%=items[i].description%></pre>
+                <p><strong>Quantity = <%=items[i].qty%></strong></p>
+                <p><strong>Rs.<%=items[i].itemprice%></strong></p>
+            </div>
+        <%}%>
     </section>
 
     <section class="footer">

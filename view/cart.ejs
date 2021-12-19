@@ -147,12 +147,48 @@ body{
     </section>
 
     <section class="c3">
-        <h3>Mobiles</h3>
-        
+        <% for(var i=0;i<items.length;i++){ %>
+            <div class="c1">
+                <% if(items[i].type=='m'){%>
+                <img src="images/item<%=items[i].itemid%>.jpg" alt="" class="c2">
+                <%}else{%>
+                    <img src="images/itemlaptop<%=items[i].itemid%>.jpg" alt="" class="c2">
+                <%}%>
+                <pre><%=items[i].description%></pre>
+                <p><strong>Rs.<%=items[i].itemprice%></strong></p>
+
+                <form action="/orders" method="POST">
+                    <input type="hidden" name="itemid" value="<%=items[i].itemid%>"/>
+                    <input type="hidden" name="type" value="<%=items[i].type%>"/>
+                    <div style="display:flex;flex-direction: column;align-items: center;justify-content: center;">
+                    <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
+                        <button type="button" onclick="inc('qty<%=items[i].itemid%>')" style="margin-right:3%;">+</button>
+                        <input id="qty<%=items[i].itemid%>" name="qty" value="0" size="4" maxlength="4"/>
+                        <button type="button" onclick="dec('qty<%=items[i].itemid%>')" style="margin-right:3%; margin-left:3%;">-</button>
+                    <button type="submit"  class="btn btn-light c4">Buy Now</button> 
+                </div>
+                </form> 
+            </div>
+            </div>
+        <%}%>
     </section>
 
     <section class="footer">
         <p>Copyright</p>
     </section>
+
+    <script>
+        function inc(itemqty){
+            var a=document.getElementById(itemqty).value;
+            document.getElementById(itemqty).value=parseInt(a)+1;            
+        }
+        function dec(itemqty){
+            var a=document.getElementById(itemqty).value;
+            if(a!=0){
+            document.getElementById(itemqty).value=parseInt(a)-1;
+            }
+        }
+        imageZoom("myimage","myresult");
+    </script>
     </body>
 </html>

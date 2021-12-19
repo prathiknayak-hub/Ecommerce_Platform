@@ -3,6 +3,8 @@ const {body} = require('express-validator');
 const auth = require('../controllers/user_register');
 const mobilelist = require('../controllers/mobiles_list');
 const laptoplist = require('../controllers/laptops_list');
+const orderslist = require('../controllers/orders_list');
+const cartlist = require('../controllers/carts_list');
 const Cart = require('../controllers/cart');
 const Order = require('../controllers/order');
 const router = express.Router();
@@ -36,11 +38,13 @@ router.get('/laptop',async(req,res) => {
  });
 
  router.get('/orders',async(req,res) => {
-     res.render('orders', { layout: false })
+    let items = await orderslist.fetch_orders(req,res);
+    res.render('orders', { layout: false ,items:items})
  });
 
  router.get('/cart',async(req,res) => {
-     res.render('cart', { layout: false })
+    let items = await cartlist.fetch_carts(req,res);
+     res.render('cart', { layout: false,items:items })
  });
 
 router.post('/',registervalidator,(req,res) => {
