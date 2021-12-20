@@ -110,7 +110,7 @@ body{
 .c1{
     text-align:center;
     display:inline-block;
-    height:25rem;
+    height: 27rem;
     width:20rem;
     margin:0.5rem;
     /* border:solid 2px; */
@@ -154,15 +154,12 @@ body{
                 <%}else{%>
                     <img src="images/itemlaptop<%=items[i].itemid%>.jpg" alt="" class="c2">
                 <%}%>
+                <pre><%=items[i].itemname%></pre>
                 <pre><%=items[i].description%></pre>
                 <p><strong>Quantity = <%=items[i].qty%></strong></p>
                 <p><strong>Rs.<%=items[i].itemprice%></strong></p>
             </div>
         <%}%>
-    </section>
-
-    <section class="footer">
-        <p>Copyright</p>
     </section>
     </body>
 </html>

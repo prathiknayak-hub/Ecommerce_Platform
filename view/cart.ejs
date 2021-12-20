@@ -110,7 +110,7 @@ body{
 .c1{
     text-align:center;
     display:inline-block;
-    height:25rem;
+    height:27rem;
     width:20rem;
     margin:0.5rem;
     /* border:solid 2px; */
@@ -154,6 +154,7 @@ body{
                 <%}else{%>
                     <img src="images/itemlaptop<%=items[i].itemid%>.jpg" alt="" class="c2">
                 <%}%>
+                <pre><%=items[i].itemname%></pre>
                 <pre><%=items[i].description%></pre>
                 <p><strong>Rs.<%=items[i].itemprice%></strong></p>
 
@@ -163,7 +164,7 @@ body{
                     <div style="display:flex;flex-direction: column;align-items: center;justify-content: center;">
                     <div style="display:flex;flex-direction: row;align-items: center;justify-content: center;">
                         <button type="button" onclick="inc('qty<%=items[i].itemid%>')" style="margin-right:3%;">+</button>
-                        <input id="qty<%=items[i].itemid%>" name="qty" value="0" size="4" maxlength="4"/>
+                        <input id="qty<%=items[i].itemid%>" name="qty" value="1" size="4" maxlength="4" style="text-align: center;"/>
                         <button type="button" onclick="dec('qty<%=items[i].itemid%>')" style="margin-right:3%; margin-left:3%;">-</button>
                     <button type="submit"  class="btn btn-light c4">Buy Now</button> 
                 </div>
@@ -173,10 +174,6 @@ body{
         <%}%>
     </section>
 
-    <section class="footer">
-        <p>Copyright</p>
-    </section>
-
     <script>
         function inc(itemqty){
             var a=document.getElementById(itemqty).value;
@@ -184,7 +181,7 @@ body{
         }
         function dec(itemqty){
             var a=document.getElementById(itemqty).value;
-            if(a!=0){
+            if(a!=1){
             document.getElementById(itemqty).value=parseInt(a)-1;
             }
         }
