@@ -165,9 +165,9 @@ body{
         <section class="heading">
         <div>
        <h3 class="a">Hyperlocal</h3>
-       <form class="a1">
-           <input type="text" class="a12" placeholder="Search">
-           <button type="button" class="btn btn-warning">Search</button>
+       <form class="a1" method="POST" action="/search">
+           <input type="text" class="a12" placeholder="Search" name="search">
+           <button type="submit" class="btn btn-warning">Search</button>
        </form>
        <a href="/logout" class="hsig">LogOut</a>
     </div>

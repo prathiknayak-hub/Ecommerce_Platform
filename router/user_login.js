@@ -81,6 +81,20 @@ router.post('/orders',async(req,res) => {
     }
 });
 
+router.post("/search",async(req,res)=>{
+    console.log("hi");
+    const search=req.body.search;
+    const search1=search.toLowerCase();
+    if(search1=="mobile"){
+        let mobiles =await mobilelist.fetch_mobiles(req,res);
+        res.render("mobile",{layout:false,mobiles:mobiles});
+    }
+    else if(search1=="laptop"){
+        let laptops =await laptoplist.fetch_laptops(req,res);
+        res.render("laptop",{layout:false,laptops:laptops});       
+    }
+});
+
 router.get("/logout", async (req, res) => {
     console.log("hi")
     res.clearCookie('token')
