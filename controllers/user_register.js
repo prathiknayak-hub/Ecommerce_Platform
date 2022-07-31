@@ -11,6 +11,7 @@ async function register (req,res) {
             res.status(400).json({errors:errors.array()[1].msg});
             return
         }
+        console.log("here1")
         const {name,email,password,confirmpassword} = req.body;
         const check_if_user_exists = await pool.query("select email from CUSTOMER where email=$1",[email]);
         // console.log(check_if_user_exists.rows[0]);
@@ -18,11 +19,13 @@ async function register (req,res) {
             res.status(404).json({errors:"Account already exists"})
             return;
         }
+        console.log("here2")
         const salt = await bcrypt.genSalt(10)
         const hash = await bcrypt.hash(password, salt);
         // console.log(hash)
         const user_signup = await pool.query("insert into customer (email,password,name) values ($1,$2, $3)", [email,hash,name])
         // console.log(user_signup);
+        console.log("here3")
         res.status(201).json({
             user: '1'
         });

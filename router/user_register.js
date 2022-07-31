@@ -10,7 +10,6 @@ const registervalidator=[
     .withMessage("Please provide a valid email address"),
     body("password")
     .exists()
-    .isAlphanumeric()
     .notEmpty()
     .isLength({min:6,max:20})
     .withMessage("Please enter a valid password")
